@@ -4,8 +4,7 @@ angular.module('myApp')
 function myController() {
 
 	var vm = this;
-	vm.hobbies = ["hobby","hobby","hobby"];
-	
+	vm.hobbies = [];
 
 	vm.add = function (newHobby) {
 		vm.hobbies.push(newHobby);
@@ -14,8 +13,4 @@ function myController() {
 	vm.delete = function(hobby){
 		vm.hobbies.splice(hobby, 1);
 	}
-	// vm.update = function (){
-	// 	// for (var i = 0; i < vm.webs.length; i++) {}
-		
-	// }
 }
