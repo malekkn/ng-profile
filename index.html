@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		
+</head>
+<body ng-app="myApp">
+	<div ng-controller="controller as ctrl">
+		<div>
+			<div ng-show="printer">
+				<p>hello {{firstname}} {{lastname}}</p>
+				<p>Your hobbies are </p>
+			</div>
+			<div ng-hide="printer">
+				<input type="text" placeholder="first name" ng-model="firstname"><br>
+				<input type="text" placeholder="last name" ng-model="lastname"><br>
+				<input type="text" placeholder="enter a hobby" ng-model="newHobby">
+				<button ng-click="ctrl.add(newHobby)">add</button>
+			</div>
+			<div>
+				<ul ng-repeat="hobby in ctrl.hobbies track by $index">
+					<li ng-class="faved">{{hobby}}<br>
+						<select ng-model="faved" ng-hide="printer">
+							<option value="blue">favorite</option>
+							<option value=" ">unfavorite</option>
+						</select>
+						<button ng-click="ctrl.delete(ctrl.hobby)" ng-hide="printer">delete</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<button ng-hide="printer" ng-click="printer = true">Done</button>
+		
+	</div>    
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script src="app.js"></script>
+	<script src="controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</html>
